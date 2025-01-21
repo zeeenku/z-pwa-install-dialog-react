@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import DeviceDetector from "device-detector-js";
 import { DeviceDetectorResult, DeviceDetectorOptions } from "device-detector-js";
 import "./globals.css";
@@ -11,57 +11,53 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
+  DialogClose
 } from "@/components/ui/dialog"
+import ZPwaInstallDialogTrigger from './z-pwa-install-dialog-trigger';
 
 
 interface ZPwaInstallDialogProps {
-  text: string;
+    children?: ReactNode;
+    title?: string;
+    onDownloadPwa?: () => void; 
 }
 
-const ZPwaInstallDialog: React.FC<ZPwaInstallDialogProps> = ({ text }) => {
+const ZPwaInstallDialog: React.FC<ZPwaInstallDialogProps> = ({ onDownloadPwa, children , title }) => {
     const deviceDetector = new DeviceDetector();
     const device = deviceDetector.parse(navigator.userAgent);
 
-    // {
-    //     "client": {
-    //       "type": "browser",
-    //       "name": "Chrome",
-    //       "version": "69.0",
-    //       "engine": "Blink",
-    //       "engineVersion": ""
-    //     },
-    //     "os": {
-    //       "name": "Mac",
-    //       "version": "10.13",
-    //       "platform": ""
-    //     },
-    //     "device": {
-    //       "type": "desktop",
-    //       "brand": "Apple",
-    //       "model": ""
-    //     },
-    //     "bot": null
-    //   }
+    if(!children){
+        children = (<ZPwaInstallDialogTrigger/>);
+    }
 
+    if(!title){
+        title = "Download Pwa Now";
+    }
     return (
         <Dialog>
-            <DialogTrigger asChild>
-                <Button variant="outline">Edit Profile</Button>
-            </DialogTrigger>
+            {children }
+
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                <DialogTitle>Edit profile</DialogTitle>
+                <DialogTitle>{title}</DialogTitle>
                 <DialogDescription>
                     
-                    Make changes to your profile here. Click save when you're done.
                 </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
                 <ZPwaInstallInstruc/>
             </div>
                 <DialogFooter>
-                <Button type="submit">Save changes</Button>
+                    <DialogClose asChild>
+                        <Button type="button" variant="secondary">
+                        Close
+                        </Button>
+                    </DialogClose>
+                    <DialogClose onClick={onDownloadPwa} asChild>
+                        <Button type="button">
+                        Done!
+                        </Button>
+                    </DialogClose>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

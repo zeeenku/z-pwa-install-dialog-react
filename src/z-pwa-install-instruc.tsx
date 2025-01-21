@@ -20,7 +20,50 @@ interface ZPwaInstallInstrucProps {
 const ZPwaInstallInstruc: React.FC<ZPwaInstallInstrucProps> = ({ className }) => {
     const deviceDetector = new DeviceDetector();
     const device = deviceDetector.parse(navigator.userAgent);
+  /**
+     * 1. Google Chrome (Desktop & Mobile)
+Open the web app in Chrome.
+Click the "Install" button (desktop) or tap the three-dot menu and select "Add to Home screen" (mobile).
+Confirm and the app will install.
+     */
 
+const clickDotsInstall = [
+    "Click/Tap the three-dot menu",
+    "Select \"Add to Home screen\"."
+];
+
+const config = {
+    "chrome" : {
+        "desktop" : [
+            "Click the \"Install\" button  at top of search bar."
+        ],
+        "mobile" : clickDotsInstall,
+    },
+
+    "Microsoft Edge" : {
+        "desktop" : clickDotsInstall,
+
+        "mobile" : clickDotsInstall
+    },
+
+
+
+    "Microsoft Edge" : {
+        "desktop" : clickDotsInstall,
+        "mobile" : clickDotsInstall
+        
+    },
+
+    "Firefox" : {
+        "desktop" : {
+            "mac" : []
+        },
+
+        "mobile" : {
+
+        }
+    }
+}
     // {
     //     "client": {
     //       "type": "browser",
@@ -41,6 +84,7 @@ const ZPwaInstallInstruc: React.FC<ZPwaInstallInstrucProps> = ({ className }) =>
     //     },
     //     "bot": null
     //   }
+
 
     return (
         <div className={`${className} pwa-install-instructions`} >hhh</div>
