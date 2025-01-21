@@ -30,6 +30,7 @@
     "url": "git+https://github.com/zeeenku/z-pwa-install-dialog.git"
   },
   "dependencies": {
+    "device-detector-js": "^3.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }
