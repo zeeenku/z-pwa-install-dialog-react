@@ -30,8 +30,15 @@
     "url": "git+https://github.com/zeeenku/z-pwa-install-dialog.git"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.4",
+    "@shadcn/ui": "^0.0.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "device-detector-js": "^3.0.3",
+    "lucide-react": "^0.473.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
