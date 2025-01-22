@@ -46,8 +46,8 @@
     "-": "^0.0.1",
     "@babel/cli": "^7.26.4",
     "device-detector-js": "^3.0.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "save-dev": "0.0.1-security"
   }
 }
