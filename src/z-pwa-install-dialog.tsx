@@ -33,7 +33,8 @@ const ZPwaInstallDialog: React.FC<ZPwaInstallDialogProps> = ({ onDownloadPwa, ch
 
     return (
         <Dialog>
-            {children }
+
+            {React.isValidElement(children) ? children : null}
 
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>

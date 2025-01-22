@@ -15,9 +15,12 @@ const ZPwaInstallDialogTrigger: React.FC<ZPwaInstallDialogTriggerProps> = ({ chi
 
     return (
             <DialogTrigger asChild>
-                { children ??                 
-                <Button variant="outline">Install App</Button>               
+                {
+                    React.isValidElement(children) ? 
+                    children : 
+                    <Button variant="outline">Install App</Button>     
                 }
+
             </DialogTrigger>
         
     );    
