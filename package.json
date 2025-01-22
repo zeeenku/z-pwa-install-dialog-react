@@ -1,7 +1,7 @@
 {
   "name": "z-pwa-install-dialog",
   "description": "Easy to use Web Dialog & Instruction Components for PWA Installation Management",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",                     
   "main": "dist/index.js",                
   "module": "dist/index.module.js",    

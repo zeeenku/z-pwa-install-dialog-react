@@ -1,66 +1,94 @@
-import React, {ReactNode} from 'react';
-import "./globals.css";
-import ZPwaInstallInstruc from "@/z-pwa-install-instruc";
-import { Button } from "@/components/ui/button"
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogClose
-} from "@/components/ui/dialog"
+import React, { useState, useEffect, ReactElement } from 'react';
+import DialogButton from "./z-pwa-install-dialog-btn";
+import ZPwaInstallInstruc from "./z-pwa-install-instruc";
 
-import ZPwaInstallDialogTrigger from './z-pwa-install-dialog-btn';
-
-
-interface ZPwaInstallDialogProps {
-    children?: ReactNode;
+interface DialogProps {
     title?: string;
-    onDownloadPwa?: () => void; 
+    onDownloadPwa?: () => void;
+    children: React.ReactNode;
+    isOpen?: boolean; 
+    onClose?: () => void;
 }
 
-const ZPwaInstallDialog: React.FC<ZPwaInstallDialogProps> = ({ onDownloadPwa, children , title }) => {
+const Dialog: React.FC<DialogProps> = ({
+title = 'Download App Now',
+onDownloadPwa,
+children,
+isOpen: controlledIsOpen,
+onClose,
+}) => {
 
-    if(!children){
-        children = (<ZPwaInstallDialogTrigger/>);
+const [isOpen, setIsOpen] = useState<boolean>(false);
+
+useEffect(() => {
+    
+    if (controlledIsOpen !== undefined) {
+    setIsOpen(controlledIsOpen);
     }
+}, [controlledIsOpen]);
 
-    if(!title){
-        title = "Download Pwa Now";
+const openDialog = () => {
+    if (onClose) {
+    onClose();
     }
-
-    return (
-        <Dialog>
-
-            {React.isValidElement(children) ? children : null}
-
-            <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                <DialogTitle>{title}</DialogTitle>
-                <DialogDescription>
-                    
-                </DialogDescription>
-            </DialogHeader>
-            <div className="grid gap-4 py-4">
-                <ZPwaInstallInstruc/>
-            </div>
-                <DialogFooter>
-                    <DialogClose asChild>
-                        <Button type="button" variant="secondary">
-                        Close
-                        </Button>
-                    </DialogClose>
-                    <DialogClose onClick={onDownloadPwa} asChild>
-                        <Button type="button">
-                        Done!
-                        </Button>
-                    </DialogClose>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
-    );    
+    setIsOpen(true);
 };
 
-export default ZPwaInstallDialog;
+const closeDialog = () => {
+    setIsOpen(false);
+    if (onClose) {
+    onClose();
+    }
+};
+
+return (
+    <>
+    <div>
+        {React.isValidElement(children) ? (
+            <div onClick={openDialog}>
+                {React.cloneElement(children as ReactElement)}
+            </div>
+        ) : (
+            <DialogButton onClick={openDialog}>Install App</DialogButton>
+        )}
+    </div>
+
+
+    {/* Dialog */}
+    {isOpen && (
+        <div className="z-pwa-dialog-overlay">
+        <div className="z-pwa-dialog-content">
+            <div className="z-pwa-dialog-header">
+            <h3>{title}</h3>
+            <button
+                onClick={closeDialog}
+                className="z-pwa-dialog-button-info z-pwa-icon-button"
+            >
+                &times;
+            </button>
+            </div>
+            <div className="z-pwa-dialog-body">
+            <ZPwaInstallInstruc />
+            </div>
+            <div className="z-pwa-dialog-footer">
+            <DialogButton onClick={closeDialog} variant="info" className="button button-info">
+                Close
+            </DialogButton>
+            <DialogButton
+                onClick={() => {
+                if (onDownloadPwa) onDownloadPwa();
+                closeDialog();
+                }}
+                variant="primary"
+            >
+                Done!
+            </DialogButton>
+            </div>
+        </div>
+        </div>
+    )}
+    </>
+);
+};
+
+export default Dialog;

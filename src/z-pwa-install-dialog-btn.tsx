@@ -4,7 +4,7 @@ interface ZPwaDialogButtonProps {
   onClick: () => void;
   children: React.ReactNode;
   className?: string;
-  variant?: 'primary' | 'secondary'; // you can adjust the possible variants here
+  variant?: 'primary' | 'info'; // you can adjust the possible variants here
 }
 
 const ZPwaDialogButton: React.FC<ZPwaDialogButtonProps> = ({ onClick, children, className = '', variant = 'primary' }) => {
