@@ -27,43 +27,52 @@ Click the "Install" button (desktop) or tap the three-dot menu and select "Add t
 Confirm and the app will install.
      */
 
-const clickDotsInstall = [
-    "Click/Tap the three-dot menu",
-    "Select \"Add to Home screen\"."
-];
+// const clickDotsInstall = [
+//     "Click/Tap the three-dot menu",
+//     "Select \"Add to Home screen\"."
+// ];
 
-const config = {
-    "chrome" : {
-        "desktop" : [
-            "Click the \"Install\" button  at top of search bar."
-        ],
-        "mobile" : clickDotsInstall,
-    },
+// const config = {
+//     "chrome" : {
+//         "desktop" : [
+//             "Click the \"Install\" button  at top of search bar."
+//         ],
+//         "mobile" : clickDotsInstall,
+//     },
 
-    "Microsoft Edge" : {
-        "desktop" : clickDotsInstall,
+//     "Microsoft Edge" : {
+//         "desktop" : clickDotsInstall,
 
-        "mobile" : clickDotsInstall
-    },
+//         "mobile" : clickDotsInstall
+//     },
 
 
 
-    "Microsoft Edge" : {
-        "desktop" : clickDotsInstall,
-        "mobile" : clickDotsInstall
+//     "Microsoft Edge" : {
+//         "desktop" : clickDotsInstall,
+//         "mobile" : clickDotsInstall
         
-    },
+//     },
 
-    "Firefox" : {
-        "desktop" : {
-            "mac" : []
-        },
+//     "Firefox" : {
+//         "desktop" : {
+//             "mac" : []
+//         },
 
-        "mobile" : {
+//         "mobile" : {
 
-        }
-    }
+//         }
+//     }
+// }
+
+const getConfig = () => {
+    return [
+        "Tap the three-dot menu (top-right).",
+        "Select 'Add to Home screen'.",
+        "If not available, contact browser support for help."
+    ];
 }
+
     // {
     //     "client": {
     //       "type": "browser",
@@ -85,9 +94,24 @@ const config = {
     //     "bot": null
     //   }
 
+    const installInstr = getConfig();
 
     return (
-        <div className={`${className} pwa-install-instructions`} >hhh</div>
+        <div className={`${className} pwa-install-instructions`} >
+                                <ul>
+            {
+                (installInstr.length == 1) ?
+
+                (<li>{installInstr[0]}</li>)
+
+                : 
+                (
+                        installInstr.map((el)=> <ol>{el}</ol>)
+                )
+
+            }
+            </ul>
+        </div>
     );    
 };
 
