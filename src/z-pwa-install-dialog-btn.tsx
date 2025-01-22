@@ -4,10 +4,15 @@ interface ZPwaDialogButtonProps {
   onClick: () => void;
   children: React.ReactNode;
   className?: string;
-  variant?: 'primary' | 'info'; // you can adjust the possible variants here
+  variant?: 'primary' | 'info';
 }
 
-const ZPwaDialogButton: React.FC<ZPwaDialogButtonProps> = ({ onClick, children, className = '', variant = 'primary' }) => {
+const ZPwaDialogButton: React.FC<ZPwaDialogButtonProps> = ({
+  onClick,
+  children,
+  className = '',
+  variant = 'primary',
+}) => {
   return (
     <button
       onClick={onClick}
