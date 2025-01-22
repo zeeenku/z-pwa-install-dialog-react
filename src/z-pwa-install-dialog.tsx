@@ -1,18 +1,17 @@
 import React, {ReactNode} from 'react';
-import DeviceDetector from "device-detector-js";
-import { DeviceDetectorResult, DeviceDetectorOptions } from "device-detector-js";
 import "./globals.css";
 import ZPwaInstallInstruc from "@/z-pwa-install-instruc";
 import { Button } from "@/components/ui/button"
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogClose
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogClose
 } from "@/components/ui/dialog"
+
 import ZPwaInstallDialogTrigger from './z-pwa-install-dialog-trigger';
 
 
@@ -23,8 +22,6 @@ interface ZPwaInstallDialogProps {
 }
 
 const ZPwaInstallDialog: React.FC<ZPwaInstallDialogProps> = ({ onDownloadPwa, children , title }) => {
-    const deviceDetector = new DeviceDetector();
-    const device = deviceDetector.parse(navigator.userAgent);
 
     if(!children){
         children = (<ZPwaInstallDialogTrigger/>);
@@ -33,6 +30,7 @@ const ZPwaInstallDialog: React.FC<ZPwaInstallDialogProps> = ({ onDownloadPwa, ch
     if(!title){
         title = "Download Pwa Now";
     }
+
     return (
         <Dialog>
             {children }

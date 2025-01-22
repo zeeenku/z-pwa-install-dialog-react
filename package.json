@@ -1,12 +1,14 @@
 {
   "name": "z-pwa-install-dialog",
-  "description": "A description of your React package",
-  "version": "1.0.0",
-  "type": "module",
-  "source": "src/index.js",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
-  "unpkg": "dist/index.umd.js",
+  "description": "Easy to use Web Dialog & Instruction Components for PWA Installation Management",
+  "version": "0.5.0",
+  "type": "module",                     
+  "main": "dist/index.js",                
+  "module": "dist/index.module.js",    
+  "unpkg": "dist/index.umd.js",           
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",  
+  
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch"
@@ -30,6 +32,8 @@
     "url": "git+https://github.com/zeeenku/z-pwa-install-dialog.git"
   },
   "dependencies": {
+    "-": "^0.0.1",
+    "@babel/cli": "^7.26.4",
     "@radix-ui/react-dialog": "^1.1.4",
     "@radix-ui/react-slot": "^1.1.1",
     "@shadcn/ui": "^0.0.4",
@@ -39,7 +43,9 @@
     "lucide-react": "^0.473.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "save-dev": "0.0.1-security",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
   }
 }
+
