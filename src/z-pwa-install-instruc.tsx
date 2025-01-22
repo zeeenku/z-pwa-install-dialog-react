@@ -105,10 +105,10 @@ const getConfig = () => {
                 (<li>{installInstr[0]}</li>)
 
                 : 
-                (
-                        installInstr.map((el)=> <ol>{el}</ol>)
-                )
-
+                
+                installInstr.map((el, idx) => (
+                    <ol key={idx}>{el}</ol>
+                ))
             }
             </ul>
         </div>
