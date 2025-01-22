@@ -99,18 +99,12 @@ const getConfig = () => {
     return (
         <div className={`${className} pwa-install-instructions`}>
             <ul>
-                {
-                    installInstr.length === 1 ? (
-                        <li>{installInstr[0]}</li>
-                    ) : (
-                        installInstr.map((el, idx) => (
-                            <ol key={idx}>{el}</ol>
-                        ))
-                    )
-                }
+                {installInstr.map((el, idx) => (
+                    <li key={idx}>{el}</li>
+                ))}
             </ul>
         </div>
-    );    
+    );   
 };
 
 export default ZPwaInstallInstruc;
