@@ -17,10 +17,11 @@ interface ZPwaInstallInstrucProps {
  * . pwa-install-instructions > li
  * .......
  */
+
 const ZPwaInstallInstruc: React.FC<ZPwaInstallInstrucProps> = ({ className }) => {
     const deviceDetector = new DeviceDetector();
     const device = deviceDetector.parse(navigator.userAgent);
-  /**
+/**
      * 1. Google Chrome (Desktop & Mobile)
 Open the web app in Chrome.
 Click the "Install" button (desktop) or tap the three-dot menu and select "Add to Home screen" (mobile).
