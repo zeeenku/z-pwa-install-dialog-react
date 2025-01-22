@@ -1,4 +1,3 @@
-import React from 'react';
 import DeviceDetector from "device-detector-js";
 import { DeviceDetectorResult, DeviceDetectorOptions } from "device-detector-js";
 // might remove it later and just use plain css and stuff....

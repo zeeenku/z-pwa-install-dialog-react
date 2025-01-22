@@ -2,14 +2,12 @@
   "name": "z-pwa-install-dialog",
   "description": "Easy to use Web Dialog & Instruction Components for PWA Installation Management",
   "version": "0.7.2",
-  "type": "module",                                   
-  "module": "dist/index.module.js",    
-  "unpkg": "dist/index.umd.js",           
+  "type": "module",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
   "source": "src/index.ts",
-  "types": "dist/index.d.ts", 
+  "types": "dist/index.d.ts",
   "main": "dist/my-react-library.cjs",
-
-  
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
@@ -33,22 +31,25 @@
     "type": "git",
     "url": "git+https://github.com/zeeenku/z-pwa-install-dialog.git"
   },
-
-  "keywords": ["pwa", "react", "components", "dialog", "web-app"],
+  "keywords": [
+    "pwa",
+    "react",
+    "components",
+    "dialog",
+    "web-app"
+  ],
   "author": "Enajjachi Zakariaa",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zeeenku/z-pwa-install-dialog/issues"
   },
   "homepage": "https://github.com/zeeenku/z-pwa-install-dialog#readme",
-
   "dependencies": {
     "-": "^0.0.1",
     "@babel/cli": "^7.26.4",
     "device-detector-js": "^3.0.3",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "save-dev": "0.0.1-security"
   }
 }
-

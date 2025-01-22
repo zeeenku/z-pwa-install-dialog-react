@@ -1,16 +1,17 @@
-import React, { useState, useEffect, ReactElement } from 'react';
+import { useState, useEffect,FC, ReactElement, isValidElement, ReactNode , cloneElement} from 'react';
+
 import DialogButton from "./z-pwa-install-dialog-btn";
 import ZPwaInstallInstruc from "./z-pwa-install-instruc";
 
 interface DialogProps {
     title?: string;
     onDownloadPwa?: () => void;
-    children: React.ReactNode;
+    children: ReactNode;
     isOpen?: boolean; 
     onClose?: () => void;
 }
 
-const Dialog: React.FC<DialogProps> = ({
+const Dialog: FC<DialogProps> = ({
 title = 'Download App Now',
 onDownloadPwa,
 children,
@@ -44,9 +45,9 @@ const closeDialog = () => {
 return (
     <>
     <div>
-        {React.isValidElement(children) ? (
+        {isValidElement(children) ? (
             <div onClick={openDialog}>
-                {React.cloneElement(children as ReactElement)}
+                {cloneElement(children as ReactElement)}
             </div>
         ) : (
             <DialogButton onClick={openDialog}>Install App</DialogButton>
