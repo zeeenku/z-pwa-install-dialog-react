@@ -1,7 +1,7 @@
 {
   "name": "z-pwa-install-dialog",
   "description": "Easy to use Web Dialog & Instruction Components for PWA Installation Management",
-  "version": "0.7.6",
+  "version": "0.7.7",
   "type": "module",
   "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
@@ -17,8 +17,8 @@
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.26.3",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
     "babel-loader": "^9.2.1",
     "microbundle": "^0.15.1",
     "ts-loader": "^9.5.2",
@@ -48,8 +48,8 @@
     "-": "^0.0.1",
     "@babel/cli": "^7.26.4",
     "device-detector-js": "^3.0.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "save-dev": "0.0.1-security"
   }
 }
