@@ -97,19 +97,17 @@ const getConfig = () => {
     const installInstr = getConfig();
 
     return (
-        <div className={`${className} pwa-install-instructions`} >
-                                <ul>
-            {
-                (installInstr.length == 1) ?
-
-                (<li>{installInstr[0]}</li>)
-
-                : 
-                
-                installInstr.map((el, idx) => (
-                    <ol key={idx}>{el}</ol>
-                ))
-            }
+        <div className={`${className} pwa-install-instructions`}>
+            <ul>
+                {
+                    installInstr.length === 1 ? (
+                        <li>{installInstr[0]}</li>
+                    ) : (
+                        installInstr.map((el, idx) => (
+                            <ol key={idx}>{el}</ol>
+                        ))
+                    )
+                }
             </ul>
         </div>
     );    
