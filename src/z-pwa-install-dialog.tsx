@@ -12,7 +12,7 @@ import {
     DialogClose
 } from "@/components/ui/dialog"
 
-import ZPwaInstallDialogTrigger from './z-pwa-install-dialog-trigger';
+import ZPwaInstallDialogTrigger from './z-pwa-install-dialog-btn';
 
 
 interface ZPwaInstallDialogProps {
