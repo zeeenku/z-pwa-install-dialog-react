@@ -3,6 +3,7 @@ import DeviceDetector from "device-detector-js";
 import { DeviceDetectorResult, DeviceDetectorOptions } from "device-detector-js";
 // might remove it later and just use plain css and stuff....
 import "./globals.css";
+import {instrucs, osInstruc} from "./instructions";
 
 interface ZPwaInstallInstrucProps {
     className? : string;
@@ -13,99 +14,63 @@ interface ZPwaInstallInstrucProps {
  * @param param0 to style it just .pwa-install-instructions
  * @returns 
  * 
- * .pwa-install-instructions > ul
- * . pwa-install-instructions > li
+ * .z-pwa-install-instructions > ul
+ * . z-pwa-install-instructions > li
  * .......
  */
 
 const ZPwaInstallInstruc: React.FC<ZPwaInstallInstrucProps> = ({ className }) => {
+
+
+  const getConfig = () => {
+
     const deviceDetector = new DeviceDetector();
-    const device = deviceDetector.parse(navigator.userAgent);
-/**
-     * 1. Google Chrome (Desktop & Mobile)
-Open the web app in Chrome.
-Click the "Install" button (desktop) or tap the three-dot menu and select "Add to Home screen" (mobile).
-Confirm and the app will install.
-     */
+    const info : DeviceDetectorResult = deviceDetector.parse(navigator.userAgent);
+    const browser = info.client?.name?.toLowerCase() ?? "";
+    const os = info.os?.name?.toLowerCase() ?? "";
+    const device = info.device?.type?.toLowerCase() ?? "";
+    let res : string[]  = [];
+    // detect sys in failure use device
+    if(Object.keys(osInstruc).includes(os)){
+    res = osInstruc[os];
+    }
+    else{
+    if(device == "mobile"){
+        res = osInstruc["android"];
+    }
+    else {
+    //if(device == "desktop"){
+        res = osInstruc["mac/windows/linux"];
+    }
+    }
 
-// const clickDotsInstall = [
-//     "Click/Tap the three-dot menu",
-//     "Select \"Add to Home screen\"."
-// ];
+    // detect browser for more specific instructions
+    Object.keys(instrucs).forEach(el=>{
+    if(el.includes(browser)){
+        Object.keys(instrucs[el]).forEach((ell)=>{
+        if(ell.includes(os)){
+            res = instrucs[el][ell];
+        }
+        })
+    }
+    })
+    
+    
+    return res;
 
-// const config = {
-//     "chrome" : {
-//         "desktop" : [
-//             "Click the \"Install\" button  at top of search bar."
-//         ],
-//         "mobile" : clickDotsInstall,
-//     },
-
-//     "Microsoft Edge" : {
-//         "desktop" : clickDotsInstall,
-
-//         "mobile" : clickDotsInstall
-//     },
-
-
-
-//     "Microsoft Edge" : {
-//         "desktop" : clickDotsInstall,
-//         "mobile" : clickDotsInstall
-        
-//     },
-
-//     "Firefox" : {
-//         "desktop" : {
-//             "mac" : []
-//         },
-
-//         "mobile" : {
-
-//         }
-//     }
-// }
-
-const getConfig = () => {
-    return [
-        "Tap the three-dot menu (top-right).",
-        "Select 'Add to Home screen'.",
-        "If not available, contact browser support for help."
-    ];
-}
-
-    // {
-    //     "client": {
-    //       "type": "browser",
-    //       "name": "Chrome",
-    //       "version": "69.0",
-    //       "engine": "Blink",
-    //       "engineVersion": ""
-    //     },
-    //     "os": {
-    //       "name": "Mac",
-    //       "version": "10.13",
-    //       "platform": ""
-    //     },
-    //     "device": {
-    //       "type": "desktop",
-    //       "brand": "Apple",
-    //       "model": ""
-    //     },
-    //     "bot": null
-    //   }
+    };
 
     const installInstr = getConfig();
 
-    return (
-        <div className={`${className} pwa-install-instructions`}>
-            <ul>
-                {installInstr.map((el, idx) => (
-                    <li key={idx}>{el}</li>
-                ))}
-            </ul>
-        </div>
-    );   
+  return (
+    <div className={`${className} z-pwa-install-instructions`}>
+      <ul>
+        {installInstr.map((el, idx) => (
+          <li key={idx} dangerouslySetInnerHTML={ { __html: el} }></li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default ZPwaInstallInstruc;

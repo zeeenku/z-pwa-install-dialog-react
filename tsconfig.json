@@ -3,7 +3,7 @@
         "target": "es5",
         "lib": ["dom", "es2015"],
         "allowJs": true,
-        "jsx": "react-jsx",  // Enable the new JSX transform
+        "jsx": "react-jsx",
         "moduleResolution": "node",
         "declaration": true,
         "declarationDir": "./dist/types", 
