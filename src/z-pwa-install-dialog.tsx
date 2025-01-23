@@ -1,4 +1,4 @@
-import "@/index.css";
+import "./index.css";
 
 import { useState, useEffect,FC, ReactElement, isValidElement, ReactNode , cloneElement} from 'react';
 import DialogButton from "./z-pwa-install-dialog-btn";

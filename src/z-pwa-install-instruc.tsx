@@ -1,4 +1,4 @@
-import "@/index.css";
+import "./index.css";
 
 import DeviceDetector from "device-detector-js";
 import { DeviceDetectorResult } from "device-detector-js";
