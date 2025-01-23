@@ -1,5 +1,5 @@
 import { useState, useEffect,FC, ReactElement, isValidElement, ReactNode , cloneElement} from 'react';
-
+import "./globals.css";
 import DialogButton from "./z-pwa-install-dialog-btn";
 import ZPwaInstallInstruc from "./z-pwa-install-instruc";
 
@@ -29,15 +29,12 @@ useEffect(() => {
 }, [controlledIsOpen]);
 
 const openDialog = () => {
-    if (onClose) {
-    onClose();
-    }
     setIsOpen(true);
 };
 
-const closeDialog = () => {
+const closeDialog = (triggOnClose = true) => {
     setIsOpen(false);
-    if (onClose) {
+    if (onClose && triggOnClose) {
     onClose();
     }
 };
@@ -57,12 +54,12 @@ return (
 
     {/* Dialog */}
     {isOpen && (
-        <div className="z-pwa-dialog-overlay">
+        <div className="z-pwa-dialog-overlay" onClick={()=>closeDialog()}>
         <div className="z-pwa-dialog-content">
             <div className="z-pwa-dialog-header">
             <h3>{title}</h3>
             <button
-                onClick={closeDialog}
+                onClick={() => closeDialog()}
                 className="z-pwa-dialog-button-info z-pwa-icon-button"
             >
                 &times;
@@ -78,7 +75,7 @@ return (
             <DialogButton
                 onClick={() => {
                 if (onDownloadPwa) onDownloadPwa();
-                closeDialog();
+                closeDialog(false);
                 }}
                 variant="primary"
             >

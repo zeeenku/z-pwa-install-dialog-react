@@ -1,3 +1,4 @@
+import "./globals.css";
 
 interface ZPwaDialogButtonProps {
   onClick: () => void;
