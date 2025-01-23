@@ -1,11 +1,4 @@
-import "./index.css";
-
-interface ZPwaDialogButtonProps {
-  onClick: () => void;
-  children: React.ReactNode;
-  className?: string;
-  variant?: 'primary' | 'info';
-}
+import {ZPwaDialogButtonProps} from "./types";
 
 const ZPwaDialogButton: React.FC<ZPwaDialogButtonProps> = ({
   onClick,
