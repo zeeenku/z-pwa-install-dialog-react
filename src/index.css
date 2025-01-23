@@ -7,7 +7,7 @@
   --tw-content: "";
 }
 
-:host, html {
+html {
   -webkit-text-size-adjust: 100%;
   font-feature-settings: normal;
   -webkit-tap-highlight-color: transparent;

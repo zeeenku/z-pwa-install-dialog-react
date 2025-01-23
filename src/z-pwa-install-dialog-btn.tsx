@@ -1,5 +1,5 @@
+import "./index.css";
 import {ZPwaDialogButtonProps} from "./types";
-
 const ZPwaDialogButton: React.FC<ZPwaDialogButtonProps> = ({
   onClick,
   children,

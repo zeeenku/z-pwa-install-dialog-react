@@ -8,10 +8,9 @@
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "main": "dist/index.cjs",
-  "esmodule": "dist/index.esmodule.js",
 
   "scripts": {
-    "build": "microbundle build --css inline --tsconfig tsconfig.build.json",
+    "build": "microbundle build --no-minify --css",
     "dev": "microbundle watch",
     "prepublishOnly": "npm run build"
   },

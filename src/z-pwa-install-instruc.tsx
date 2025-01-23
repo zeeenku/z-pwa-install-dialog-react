@@ -1,7 +1,9 @@
+import "./index.css";
 import DeviceDetector from "device-detector-js";
 import { DeviceDetectorResult } from "device-detector-js";
 import {instrucs, osInstruc} from "./instructions";
 import {ZPwaInstallInstrucProps} from "./types";
+
 
 /**
  * 

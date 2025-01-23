@@ -1,6 +1,8 @@
+import "./index.css";
 import { useState, useEffect,FC, ReactElement,Fragment , isValidElement, cloneElement} from 'react';
 import DialogButton from "./z-pwa-install-dialog-btn";
 import ZPwaInstallInstruc from "./z-pwa-install-instruc";
+
 
 import {DialogProps} from "./types";
 
