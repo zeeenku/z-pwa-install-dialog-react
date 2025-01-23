@@ -1,82 +1,57 @@
-  z-pwa-install-dialog-react README
-
 z-pwa-install-dialog-react
 ==========================
 
-**z-pwa-install-dialog-react** is a simple and customizable React component to handle PWA (Progressive Web App) installation dialogs. It automates the process, detecting device configurations (OS, browser) and showing the relevant installation instructions.
+A simple, customizable React component for handling PWA (Progressive Web App) installation dialogs. It detects device configurations (OS, browser) and displays the right installation instructions for the user.
 
-Table of Contents
------------------
+Table of Contents:
+------------------
 
 *   [How to Use](#how-to-use)
 *   [Features](#features)
 *   [Installation](#installation)
 *   [Examples](#examples)
-
-*   [Minimal Simple Example](#minimal-simple-example)
-*   [Customizing the Trigger Element](#customizing-the-trigger-element)
-*   [Customizing the Dialog](#customizing-the-dialog)
-*   [Creating Your Own Instructions Component](#creating-your-own-instructions-component)
-
 *   [Author](#author)
 *   [Hire Me](#hire-me)
 
 Features
 --------
 
-*   No dependency on UI libraries (yet designed to resemble ShadCN UI).
-*   Automatically detects device type, OS, and browser, and provides tailored instructions.
-*   Easy to use with just one component.
-*   Highly customizable dialog, with support for creating your own instructions component.
-*   Supported browsers: Chrome, Edge, Firefox, Safari, Opera.
-*   Supported operating systems: Windows, Android, iOS, macOS, and Linux.
+*   No UI library dependencies, but designed to resemble ShadCN UI.
+*   Auto detects device OS, browser, and shows tailored instructions.
+*   Super simple to use with just one component.
+*   Fully customizable dialog and instructions.
 
 Installation
 ------------
 
-To install `z-pwa-install-dialog-react` in your project, run the following command:
+Install with npm:
 
     npm install z-pwa-install-dialog-react
 
 Examples
 --------
 
-### Minimal Simple Example
-
-Here’s a basic example of how to use the component in your app:
+### Minimal Example
 
     
     import { ZPwaInstallDialog } from 'z-pwa-install-dialog-react';
     
     function App() {
-      return (
-        <>
-          Hello, this is a demo for the PWA install dialog package
-          
-            Install
-          
-        
-      );
+      return Install;
     }
     
     export default App;
       
 
-### Customizing the Trigger Element
-
-You can customize the trigger element. This example shows how to pass your own trigger:
+### Customizing the Trigger
 
     
     import { ZPwaInstallDialog } from 'z-pwa-install-dialog-react';
     
     function App() {
       return (
-        <>
-          Hello, this is a demo for the PWA install dialog package
-          
-            {/* Your custom trigger element */}
-            Install PWA
-          
+        
+          Install PWA
         
       );
     }
@@ -86,28 +61,16 @@ You can customize the trigger element. This example shows how to pass your own t
 
 ### Customizing the Dialog
 
-If you want to customize the dialog itself, you can pass additional props for the dialog's content and behavior:
-
     
     import { ZPwaInstallDialog } from 'z-pwa-install-dialog-react';
     
     function App() {
-      let open = true;
-    
-      const handleDownload = () => {
-        // Handle download logic here
-      };
-    
-      const handleClose = () => {
-        // Handle close logic here
-      };
+      const handleDownload = () => { /* Download logic */ };
+      const handleClose = () => { /* Close logic */ };
     
       return (
-        <>
-          Hello, this is a demo for the PWA install dialog package
-          
-            Install
-          
+        
+          Install
         
       );
     }
@@ -117,18 +80,11 @@ If you want to customize the dialog itself, you can pass additional props for th
 
 ### Creating Your Own Instructions Component
 
-You can also create your own instructions component to be displayed within the dialog:
-
     
     import { ZPwaInstallInstruc } from 'z-pwa-install-dialog-react';
     
     function App() {
-      return (
-        <>
-          Hello, this is a demo for the PWA install dialog package
-          
-        
-      );
+      return ;
     }
     
     export default App;
@@ -137,7 +93,8 @@ You can also create your own instructions component to be displayed within the d
 Author
 ------
 
-**Zenku (Enajjachi Zakariaa)** - _Initial work_ - [https://dev.zeenku.com](https://dev.zeenku.com)
+**Zenku (Enajjachi Zakariaa)** – _Initial work_  
+[dev.zeenku.com](https://dev.zeenku.com)
 
 Hire Me
 -------
