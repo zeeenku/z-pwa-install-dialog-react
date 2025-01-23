@@ -6,7 +6,6 @@ A simple, customizable React component for handling PWA (Progressive Web App) in
 Table of Contents:
 ------------------
 
-*   [How to Use](#how-to-use)
 *   [Features](#features)
 *   [Installation](#installation)
 *   [Examples](#examples)
@@ -37,7 +36,7 @@ Examples
     import { ZPwaInstallDialog } from 'z-pwa-install-dialog-react';
     
     function App() {
-      return Install;
+      return (<ZPwaInstallDialog/>);
     }
     
     export default App;
