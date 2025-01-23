@@ -1,13 +1,13 @@
 {
   "name": "z-pwa-install-dialog",
   "description": "Easy to use Web Dialog & Instruction Components for PWA Installation Management",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "type": "module",
-  "module": "dist/index.module.js",
-  "unpkg": "dist/index.umd.js",
+  "module": "dist/index.module.js.map",
+  "unpkg": "dist/index.umd.js.map",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
-  "main": "dist/index.cjs",
+  "main": "dist/index.cjs.map",
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
