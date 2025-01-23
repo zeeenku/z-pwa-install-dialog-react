@@ -51,7 +51,10 @@ Examples
     function App() {
       return (
         
-          Install PWA
+         ZPwaInstallDialog>
+            {/* must be a dom element not text! */}
+            <div>install</div>
+         </ZPwaInstallDialog>
         
       );
     }
@@ -70,7 +73,12 @@ Examples
     
       return (
         
-          Install
+           <ZPwaInstallDialog title="hello world" onDownloadPwa={handleDownload}
+            onClose={handleClose}
+            //isOpen={open}
+            >
+                <div>install</div>
+            </ZPwaInstallDialog>
         
       );
     }
@@ -84,7 +92,12 @@ Examples
     import { ZPwaInstallInstruc } from 'z-pwa-install-dialog-react';
     
     function App() {
-      return ;
+      return (
+            <>
+                <h1>Welcome to the PWA Install Demo</h1>
+                <ZPwaInstallInstruc/>
+            </>
+      );
     }
     
     export default App;
