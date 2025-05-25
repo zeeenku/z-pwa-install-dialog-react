@@ -59,7 +59,7 @@ const ZPwaInstallInstruc: React.FC<ZPwaInstallInstrucProps> = ({ className }) =>
     const installInstr = getConfig();
 
   return (
-    <div className={`${className} z-pwa-install-instructions`}>
+    <div className={`${className ?? ""} z-pwa-install-instructions`}>
       <ul>
         {installInstr.map((el, idx) => (
           <li key={idx} dangerouslySetInnerHTML={ { __html: el} }></li>
