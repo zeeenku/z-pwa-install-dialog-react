@@ -1,7 +1,12 @@
 import { defineConfig } from "tsup";
 
+
 export default defineConfig({
-  entryPoints: ["./src/index.ts"],
-  format: ["cjs", "esm"],
-  dts: true,
+  entry: ['src/index.tsx'],
+  format: ['esm', 'cjs'],
+  dts: true,        
+  sourcemap: true,
+  clean: true,
+  external: ['react', 'react-dom'],
+  target: 'es2018',
 });
