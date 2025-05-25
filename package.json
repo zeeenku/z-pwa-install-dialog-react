@@ -4,7 +4,7 @@
   "types": "./dist/types/index.d.ts",
   "name": "z-pwa-install-dialog",
   "description": "Easy to use Web Dialog & Instruction Components for PWA Installation Management",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "exports": {
     ".": {
