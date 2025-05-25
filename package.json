@@ -1,56 +1,56 @@
 {
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
   "name": "z-pwa-install-dialog",
   "description": "Easy to use Web Dialog & Instruction Components for PWA Installation Management",
-  "version": "0.9.9",
+  "version": "1.0.1",
   "type": "module",
-  "module": "dist/index.module.js",
-  "unpkg": "dist/index.umd.js",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
-  "main": "dist/index.cjs",
-
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "build": "microbundle build --no-minify --css",
-    "dev": "microbundle watch",
-    "prepublishOnly": "npm run build"
+    "lint": "pnpm eslint --config eslint.config.js src/**/*.{ts,tsx}",
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm prebuild && tsup",
+    "prebuild": "pnpm lint && pnpm typecheck"
+  },
+  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-react": "^7.26.3",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
-    "babel-loader": "^9.2.1",
-    "microbundle": "^0.15.1",
-    "ts-loader": "^9.5.2",
-    "typescript": "^5.7.3",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1",
-    "webpack-node-externals": "^3.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zeeenku/z-pwa-install-dialog.git"
-  },
-  "keywords": [
-    "pwa",
-    "react",
-    "components",
-    "dialog",
-    "web-app"
-  ],
-  "author": "Enajjachi Zakariaa",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zeeenku/z-pwa-install-dialog/issues"
-  },
-  "homepage": "https://github.com/zeeenku/z-pwa-install-dialog#readme",
-  "dependencies": {
-    "-": "^0.0.1",
-    "@babel/cli": "^7.26.4",
-    "device-detector-js": "^3.0.3",
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/react": "^17.0.86",
+    "@types/react-dom": "^17.0.26",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "esbuild-style-plugin": "^1.6.3",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.5.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "save-dev": "0.0.1-security"
+    "tslib": "^2.8.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "device-detector-js": "^3.0.3",
+    "z-pwa-install-dialog": "link:../../../.local/share/pnpm/global/5/node_modules/z-pwa-install-dialog"
   }
 }
