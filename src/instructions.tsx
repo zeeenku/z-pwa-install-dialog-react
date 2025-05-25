@@ -1,3 +1,5 @@
+"use client";
+
 const shareIcon = `<svg style="transform:translateY(25%);" width="1.25rem" height="1.25rem" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="ic_fluent_share_ios_48_filled" fill="currentColor" fill-rule="nonzero">
