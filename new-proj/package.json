@@ -6,6 +6,15 @@
   "description": "Easy to use Web Dialog & Instruction Components for PWA Installation Management",
   "version": "1.0.0",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "scripts": {
     "lint": "pnpm eslint --config eslint.config.js src/**/*.{ts,tsx}",
@@ -13,6 +22,7 @@
     "build": "pnpm prebuild && tsup",
     "prebuild": "pnpm lint && pnpm typecheck"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
