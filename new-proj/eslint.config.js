@@ -1,28 +1,29 @@
-import { FlatCompat } from '@eslint/eslintrc';
-
-const compat = new FlatCompat({ baseDirectory: new URL('.', import.meta.url).pathname });
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 
 export default [
-  ...compat.extends(
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-  ),
+  {
+    ignores: ['node_modules'],
+  },
   {
     files: ['*.ts', '*.tsx'],
     languageOptions: {
+      parser: tsParser,
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
         ecmaFeatures: { jsx: true },
       },
-      parser: '@typescript-eslint/parser',
+      globals: {
+        React: 'readonly',
+      },
     },
     plugins: {
-      react: require('eslint-plugin-react'),
-      '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
-      'react-hooks': require('eslint-plugin-react-hooks'),
+      react,
+      'react-hooks': reactHooks,
+      '@typescript-eslint': tsPlugin,
     },
     rules: {
       'react/react-in-jsx-scope': 'off',
@@ -31,6 +32,14 @@ export default [
     settings: {
       react: {
         version: 'detect',
+      },
+    },
+  },
+  {
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
       },
     },
   },
