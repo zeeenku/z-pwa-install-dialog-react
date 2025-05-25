@@ -1,3 +1,5 @@
+"use client";
+
 import {ZPwaDialogButtonProps} from "../types";
 const ZPwaDialogButton: React.FC<ZPwaDialogButtonProps> = ({
   onClick,

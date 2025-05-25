@@ -3,7 +3,7 @@
 z-pwa-install-dialog-react
 ==========================
 
-A simple, customizable React components for handling PWA (Progressive Web App) installation dialogs. It detects device configurations (OS, browser) and displays the right installation instructions for the user.
+A simple, customizable React(Next js compatible) components for handling PWA (Progressive Web App) installation dialogs. It detects device configurations (OS, browser) and displays the right installation instructions for the user.
 
 Table of Contents:
 ------------------
@@ -32,8 +32,12 @@ Install with npm:
 Examples
 --------
 
+for more detailed demo projects:
+🔗 [https://github.com/zeeenku/zeeenku](https://github.com/zeeenku/pwa-install-dialog-demo)
+
 ### Minimal Example
 
+    "use client";
     import { ZPwaInstallDialog } from 'z-pwa-install-dialog-react';
     
     function App() {
@@ -45,6 +49,7 @@ Examples
 
 ### Customizing the Trigger
 
+    "use client";
     import { ZPwaInstallDialog } from 'z-pwa-install-dialog-react';
     
     function App() {
@@ -61,6 +66,7 @@ Examples
 
 ### Customizing the Dialog
 
+    "use client";
     import { ZPwaInstallDialog } from 'z-pwa-install-dialog-react';
     
     function App() {
@@ -84,6 +90,7 @@ Examples
 
 ### Creating/Customizing Your Own Instructions Component
 
+    "use client";
     import { ZPwaInstallInstruc } from 'z-pwa-install-dialog-react';
     
     function App() {
@@ -102,10 +109,8 @@ Examples
 Author
 ------
 
-<p >
-  <img src="https://raw.githubusercontent.com/zeeenku/zeeenku/refs/heads/main/me-with-laptop.jpg" alt="Zenku - Enajjachi Zakariaa"
-       style="max-width: 200px; border-radius: 50%; object-fit: cover;">
-</p>
+![Zenku - Enajjachi Zakariaa](https://raw.githubusercontent.com/zeeenku/zeeenku/refs/heads/main/me-with-laptop.jpg)
+
 **Zenku (Enajjachi Zakariaa)** – _Initial Work_
 
 [https://dev.zeenku.com](https://dev.zeenku.com)

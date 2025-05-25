@@ -10,7 +10,7 @@ export interface ZPwaDialogButtonProps {
 export interface DialogProps {
     title?: string;
     onDownloadPwa?: () => void;
-    children: ReactNode;
+    children?: ReactNode;
     isOpen?: boolean; 
     onClose?: () => void;
 };
