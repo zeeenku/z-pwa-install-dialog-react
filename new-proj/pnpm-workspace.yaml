@@ -1,2 +1,2 @@
 overrides:
-  z-pwa-install-dialog: link:../../../.local/share/pnpm/global/5/node_modules/z-pwa-install-dialog
+  z-pwa-install-dialog: 'link:'
