@@ -15,54 +15,56 @@ import {ZPwaInstallInstrucProps} from "../types";
  * .......
  */
 
+import { useEffect, useState } from "react";
+
 const ZPwaInstallInstruc: React.FC<ZPwaInstallInstrucProps> = ({ className }) => {
+  const [installInstr, setInstallInstr] = useState<string[]>([]);
 
-
-  const getConfig = () => {
-
-    const deviceDetector = new DeviceDetector();
-    const info : DeviceDetectorResult = deviceDetector.parse(navigator.userAgent);
-    const browser = info.client?.name?.toLowerCase() ?? "";
-    const os = info.os?.name?.toLowerCase() ?? "";
-    const device = info.device?.type?.toLowerCase() ?? "";
-    let res : string[]  = [];
-    // detect sys in failure use device
-    if(Object.keys(osInstruc).includes(os)){
-    res = osInstruc[os];
-    }
-    else{
-    if(device == "mobile"){
-        res = osInstruc["android"];
-    }
-    else {
-    //if(device == "desktop"){
-        res = osInstruc["mac/windows/linux"];
-    }
-    }
-
-    // detect browser for more specific instructions
-    Object.keys(instrucs).forEach(el=>{
-    if(el.includes(browser)){
-        Object.keys(instrucs[el]).forEach((ell)=>{
-        if(ell.includes(os)){
-            res = instrucs[el][ell];
+  useEffect(() => {
+    const getConfig = () => {
+      const deviceDetector = new DeviceDetector();
+      const info: DeviceDetectorResult = deviceDetector.parse(navigator.userAgent);
+      const browser = info.client?.name?.toLowerCase() ?? "";
+      const os = info.os?.name?.toLowerCase() ?? "";
+      const device = info.device?.type?.toLowerCase() ?? "";
+      let res: string[] = [];
+      // detect sys in failure use device
+      if (Object.keys(osInstruc).includes(os)) {
+        res = osInstruc[os];
+      } else {
+        if (device === "mobile") {
+          res = osInstruc["android"];
+        } else {
+          //if(device == "desktop"){
+          res = osInstruc["mac/windows/linux"];
         }
-        })
-    }
-    })
-    
-    
-    return res;
+      }
 
+      // detect browser for more specific instructions
+      Object.keys(instrucs).forEach((el) => {
+        if (el.includes(browser)) {
+          Object.keys(instrucs[el]).forEach((ell) => {
+            if (ell.includes(os)) {
+              res = instrucs[el][ell];
+            }
+          });
+        }
+      });
+
+      return res;
     };
 
-    const installInstr = getConfig();
+    setInstallInstr(getConfig());
+  }, []);
+
+  // Render nothing or a loading state until client mounted
+  if (installInstr.length === 0) return null;
 
   return (
     <div className={`${className ?? ""} z-pwa-install-instructions`}>
       <ul>
         {installInstr.map((el, idx) => (
-          <li key={idx} dangerouslySetInnerHTML={ { __html: el} }></li>
+          <li key={idx} dangerouslySetInnerHTML={{ __html: el }}></li>
         ))}
       </ul>
     </div>
@@ -70,3 +72,4 @@ const ZPwaInstallInstruc: React.FC<ZPwaInstallInstrucProps> = ({ className }) =>
 };
 
 export default ZPwaInstallInstruc;
+

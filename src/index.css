@@ -130,11 +130,12 @@ hr {
 
 .z-pwa-install-instructions ul li {
   margin: 5px 0;
-  display:flex;
-  justify-content: center;
-  align-items: start;
 }
 
+.z-pwa-install-instructions ul li svg{
+  display: inline;
+  margin:0px 0.1rem;
+}
 /* Dialog Footer */
 .z-pwa-dialog-footer {
   display: flex;
