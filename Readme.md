@@ -33,7 +33,7 @@ Examples
 --------
 
 for more detailed demo projects:
-🔗 [https://github.com/zeeenku/zeeenku](https://github.com/zeeenku/pwa-install-dialog-demo)
+🔗 [https://github.com/zeeenku/pwa-install-dialog-demo](https://github.com/zeeenku/pwa-install-dialog-demo)
 
 ### Minimal Example
 
