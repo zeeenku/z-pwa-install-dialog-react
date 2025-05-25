@@ -7,8 +7,8 @@ export default [
   {
     ignores: ['node_modules'],
   },
-  {
-    files: ['*.ts', '*.tsx'],
+  { 
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {

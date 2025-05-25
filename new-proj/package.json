@@ -8,9 +8,9 @@
   "type": "module",
   "sideEffects": false,
   "scripts": {
-    "lint": "eslint src --ext .ts,.tsx --config .eslintrc.js",
+    "lint": "pnpm eslint --config eslint.config.js src/**/*.{ts,tsx}",
     "typecheck": "tsc --noEmit",
-    "build": "sup",
+    "build": "pnpm prebuild && tsup",
     "prebuild": "pnpm lint && pnpm typecheck"
   },
   "keywords": [],
@@ -39,6 +39,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "device-detector-js": "^3.0.3"
+    "device-detector-js": "^3.0.3",
+    "z-pwa-install-dialog": "link:../../../.local/share/pnpm/global/5/node_modules/z-pwa-install-dialog"
   }
 }
