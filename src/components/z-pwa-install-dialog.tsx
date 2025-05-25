@@ -51,7 +51,7 @@ return (
     {/* Dialog */}
     {isOpen && (
         <div className="z-pwa-dialog-overlay" onClick={()=>closeDialog()}>
-        <div className="z-pwa-dialog-content">
+        <div className="z-pwa-dialog-content" onClick={e => e.stopPropagation()}>
             <div className="z-pwa-dialog-header">
             <h3>{title}</h3>
             <button
